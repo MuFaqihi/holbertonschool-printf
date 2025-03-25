@@ -6,44 +6,39 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
 	va_list args;
-	char c, char *s, int len;
+	int count = 0;
 
 	va_start(args, format);
+
 	while (*format)
 	{
-	if (*format == '%')
-	{
-	format++;
-	if (*format == 'c')
+		if (*format == '%')
 		{
-		c = va_arg(args, int);
-		write(1, &c, 1);
-		count++;
-		}
-		else if (*format == 's')
-		{
-		s = va_arg(args, char *);
-		len = 0;
-		while (s[len])
-		len++;
-		write(1, s, len);
-		count += len;
-		}
-		else if (*format == '%')
-		{
-		write(1, "%", 1);
-		count++;
-		}
+			format++;
+			if (*format == 'c')
+			{
+				char c = va_arg(args, int);
+
+				count += write(1, &c, 1);
+			}
+			else if (*format == 's')
+			{
+				char *s = va_arg(args, char *);
+				count += s ? write(1, s, strlen(s)) : write(1, "(null)", 6);
+			}
+			else if (*format == '%')
+			{
+				count += write(1, "%", 1);
+			}
 		}
 		else
 		{
-		write(1, format, 1);
-		count++;
+			count += write(1, format, 1);
 		}
 		format++;
-		}
-		va_end(args);
+	}
+
+	va_end(args);
 	return (count);
 }
