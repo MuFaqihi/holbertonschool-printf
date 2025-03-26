@@ -25,8 +25,9 @@ A simplified recreation of the standard printf function in C as part of Holberto
 
 | File          | Purpose                                                                 |
 |---------------|-------------------------------------------------------------------------|
-| `_printf.c`   | Handles all format conversions (`%c`, `%s`, `%%`)                       |
-| `functions.c` | Handles all format conversions (`%d`, `%i`)                             |
+| `_printf.c`   | Handles format conversions (`%c`, `%s`, `%%`)                           |
+| `functions.c` | Handles format conversions (`%d`, `%i`)                                 |
+| `man_3_printf`|man page for the function                                                |
 | `main.h`      | Contains function prototypes and library includes                       |
 | `test/`       | Holds test cases to verify functionality                                |
 | `README.md`   | Project documentation and specifications                                |
