@@ -1,0 +1,73 @@
+.\" Manpage for _printf with actual test examples
+.\" Holberton School printf project
+
+.TH _PRINTF 3 "2025-03-26" "Holberton" "Custom printf Manual"
+.SH NAME
+_printf \- custom printf implementation
+
+.SH SYNOPSIS
+.nf
+.B #include "main.h"
+.PP
+.BI "int _printf(const char *" format ", ...);"
+.fi
+
+.SH DESCRIPTION
+Implements basic printf functionality with these supported specifiers:
+.TP
+.B %c
+Character - From test: `_printf("Character:[%c]\n", 'H')`
+.TP
+.B %s
+String - From test: `_printf("String:[%s]\n", "I am a string !")`
+.TP
+.B %%
+Percent - From test: `_printf("Percent:[%%]\n")`
+.TP
+.B %d/%i
+Integer - From tests:
+  `_printf("Length:[%d, %i]\n", len, len)`
+  `_printf("Negative:[%d]\n", -762534)`
+
+.SH TEST EXAMPLES
+Actual test cases from main.c:
+.nf
+/* Character and String */
+_printf("Character:[%c]\n", 'H');
+_printf("String:[%s]\n", "I am a string !");
+
+/* Percent sign */
+_printf("Percent:[%%]\n");
+
+/* Integers */
+_printf("Length:[%d, %i]\n", len, len);
+_printf("Negative:[%d]\n", -762534);
+
+/* Edge cases */
+_printf("NULL string: %s\n", NULL);
+.fi
+
+.SH RETURN VALUE
+Examples from test file:
+.IP \[bu] 2
+`_printf("Hello\\n")`  ^f^r returns 6
+.IP \[bu] 2
+`_printf("Percent:[%%]\\n")`  ^f^r returns 12
+.IP \[bu] 2
+`_printf(NULL)`  ^f^r returns -1
+
+.SH UNSUPPORTED FEATURES
+Note: These test cases are NOT supported (included only for reference):
+.IP \[bu] 2
+`%u`, `%o`, `%x`, `%X` (unsigned conversions)
+.IP \[bu] 2
+`%p` (pointer addresses)
+.IP \[bu] 2
+`%r` (unknown specifier)
+
+.SH AUTHORS
+.IP \[bu] 2
+Ahmed Dawwari (https://github.com/Ahmedyahyay)
+.IP \[bu] 2
+Munirah Faqihi (https://github.com/MuFaqihi)
+
