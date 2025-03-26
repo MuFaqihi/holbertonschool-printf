@@ -8,7 +8,7 @@ A simplified recreation of the standard printf function in C as part of Holberto
 |----------------------|-------------------------------------------------------------------------|
 | Flags                | -Wall -Werror -Wextra -pedantic -std=gnu89                              |
 | Style                | Betty compliant                                                         |
-| Function Limit       |  ^i 5 functions per file                                                |
+| Function Limit       |     5 functions per file                                                |
 | Header               | main.h (include-guarded)                                                |
 | Authorized Functions | write, malloc, free, va_start, va_end, va_copy, va_arg                  |
 
@@ -20,12 +20,6 @@ A simplified recreation of the standard printf function in C as part of Holberto
 | %s        | String                       | `_printf("%s", "test")`      |
 | %%        | Percent sign                 | `_printf("100%% completed")` |
 | %d, %i    | Signed integer               | `_printf("%d", -42)`         |
-
-## Compilation
-
-```bash
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
-
 
 ### File Descriptions
 
