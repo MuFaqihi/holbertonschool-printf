@@ -25,18 +25,20 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 			{
 				char *s = va_arg(args, char *);
+
 				count += s ? write(1, s, strlen(s)) : write(1, "(null)", 6);
 			}
 			else if (*format == '%')
+			count += write(1, "%", 1);
+			else
 			{
 				count += write(1, "%", 1);
+				count += write(1, format, 1);
 			}
-		}
+			}
 		else
-		{
 			count += write(1, format, 1);
-		}
-		format++;
+			format++;
 	}
 
 	va_end(args);
