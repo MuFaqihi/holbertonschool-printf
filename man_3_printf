@@ -1,0 +1,35 @@
+_PRINTF(3)               Holberton               _PRINTF(3)
+
+NAME
+    _printf - custom printf implementation
+
+SYNOPSIS
+    #include "main.h"
+    int _printf(const char *format, ...);
+
+DESCRIPTION
+    Basic printf implementation supporting:
+    %c    Character (Example: _printf("%c", 'A') → 'A')
+    %s    String (Example: _printf("%s", "Hi") → "Hi")
+    %%    Percent sign (Example: _printf("%%") → %)
+    %d/%i Integer (Example: _printf("%d", -42) → -42)
+
+EXAMPLES
+    /* Basic usage */
+    _printf("%s score: %d%%", "Final", 85);
+    /* Output: Final score: 85% */
+
+    /* Edge case */
+    _printf("Null: %s", NULL);
+    /* Output: Null: (null) */
+
+RETURN VALUE
+    - Number of chars printed
+    - -1 on error
+
+AUTHORS
+    - Ahmed Dawwari <https://github.com/Ahmedyahyay>
+    - Munirah Faqihi <https://github.com/MuFaqihi>
+
+SEE ALSO
+    printf(3)
