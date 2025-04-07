@@ -1,52 +1,52 @@
 #include "main.h"
 /**
- * _printf - A function that selects the appropriate function for printing.
- * @format: The format specifier to identify the desired operation.
+ *_printf - Custom printf implementation.
+ * @format: The format string.
+ * @...: Variable arguments based on the format string.
  *
- * Return: Returns the length of the resulting string.
-*/
-
-int _printf(const char * const format, ...)
+ * Description: This function mimics the standard printf function. It processes
+ * the format string, handling format specifiers (%c, %s, %d, %i, %%),
+ * and writes the corresponding output. It relies on helper functions
+ * (write_char, write_str, write_int) to perform the actual writing.
+ *
+ * Return: The number of characters printed (excluding the null byte).
+ */
+int _printf(const char *format, ...)
 {
-	convert p[] = {
-		{"%s", print_s}, {"%c", print_c},
-		{"%%", print_37},
-		{"%i", print_i}, {"%d", print_d}, {"%r", print_revs},
-		{"%R", print_rot13}, {"%b", print_bin},
-		{"%u", print_unsigned},
-		{"%o", print_oct}, {"%x", print_hex}, {"%X", print_HEX},
-		{"%S", print_exc_string}, {"%p", print_pointer}
-	};
+	va_list arg;
+	int len = 0, i = 0;
+	char crntchar, *crntstring;
 
-	va_list args;
-	int i = 0, j, length = 0;
-
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-
-Here:
-	while (format[i] != '\0')
+	va_start(arg, format);
+	while (format[i])
 	{
-		j = 13;
-		while (j >= 0)
-		{
-			if (p[j].ph[0] == format[i] && p[j].ph[1] == format[i + 1])
+		if (format[i] == '%')
+			switch (format[i + 1])
 			{
-				length += p[j].function(args);
-				i = i + 2;
-				goto Here;
+				case 'c':
+					crntchar = (char)va_arg(arg, int);
+					write_char(&len, crntchar), i += 2;
+					break;
+				case 's':
+					crntstring = va_arg(arg, char*);
+					write_str(&len, crntstring), i += 2;
+					break;
+				case 'd':
+				case 'i':
+					write_int(&len, va_arg(arg, int)), i += 2;
+					break;
+				case '%':
+					write_char(&len, '%'), i += 2;
+					break;
+				case '\0':
+					continue;
+				default:
+					write_char(&len, format[i]), i++;
+					break;
 			}
-			j--;
-		}
-		_putchar(format[i]);
-		length++;
-		i++;
+		else
+			write_char(&len, format[i]), i++;
 	}
-	va_end(args);
-	return (length);
+	va_end(arg);
+	return (len);
 }
-
-
-
-
