@@ -9,10 +9,10 @@ SYNOPSIS
 
 DESCRIPTION
     Basic printf implementation supporting:
-    %c    Character (Example: _printf("%c", 'A') → 'A')
-    %s    String (Example: _printf("%s", "Hi") → "Hi")
-    %%    Percent sign (Example: _printf("%%") → %)
-    %d/%i Integer (Example: _printf("%d", -42) → -42)
+    %c    Character (Example: _printf("%c", 'A') prints 'A')
+    %s    String (Example: _printf("%s", "Hi") prints "Hi")
+    %%    Percent sign (Example: _printf("%%") prints %)
+    %d/%i Integer (Example: _printf("%d", -42) �prints -42)
 
 EXAMPLES
     /* Basic usage */

@@ -1,0 +1,28 @@
+## 👥 Contributors
+
+### Ahmed Dawwari  
+GitHub: [Ahmedyahyay](https://github.com/Ahmedyahyay)  
+**Main Contributions:**
+- Implemented the core logic of `_printf`
+- Handled `%c`, `%s`, `%%`, `%d`, `%i` format specifiers
+- Refactored code and created `functions.c`
+- Managed memory and error handling
+- Updated `main.h` and created helper functions
+
+### Munirah Faqihi  
+GitHub: [MuFaqihi](https://github.com/MuFaqihi)  
+**Main Contributions:**
+- Created and organized test files
+- Authored and maintained `README.md`
+- Worked on `man_3_printf` documentation
+- Set up initial project structure and headers
+- Handled commits related to file organization
+
+## 🤝 Team Collaboration
+
+We worked together to complete the project by dividing tasks clearly:
+
+- **Ahmed** focused on writing the core logic, implementing specifiers, and refactoring the code using helper functions.
+- **Munirah** handled documentation (`README.md`, `man_3_printf`), organized the directory structure, and created the test files to ensure functionality.
+
+Commits from both contributors reflect consistent participation, responsibility division, and code collaboration.
